@@ -1,3 +1,6 @@
+*******************************************************************************************;
+*this program stacks all the files created at partition level using 02a_kc_master_data.sas*;
+*******************************************************************************************;
 
 options mprint mtrace mlogic macrogen symbolgen;
 options linesize = 180 pagesize = 50 nocenter validvarname = upcase msglevel=I;
@@ -516,7 +519,7 @@ libname stack    "FILE PATH REDACTED";
 					if state in ("AZ" , "CO" , "ID" , "NM" , "MT" , "UT", "NV" , "WY", "AK","CA","HI" , "OR" , "WA")                                     then region= 3; *West;				
 				run;
 
-				*/
+				
 
 
 				proc univariate data=stack.pct_overall_w_regions (where=(not missing(tot_dose_1)));
@@ -564,7 +567,7 @@ libname stack    "FILE PATH REDACTED";
 
 %*************************with region stratification**********************;
 
-				/*
+				
 
 				proc univariate data=stack.pct_overall_w_regions (where=(not missing(tot_dose_1)));
 					var tot_dose_1 ;
@@ -596,7 +599,7 @@ libname stack    "FILE PATH REDACTED";
 					output out=stack.dist_booster_pfi
 					pctlpts = 25 50 75 pctlpre=p_;
 				run;
-*/
+
 
 				
 
@@ -605,7 +608,7 @@ libname stack    "FILE PATH REDACTED";
 
 
 			%mend;
-			%stacking (stacks=0, summs=0, tab1=0, final=0, misc=0);
+			%stacking (stacks=1, summs=1, tab1=1, final=1, misc=1);
 
 
 			data stack.match_0_1_100;
@@ -615,7 +618,7 @@ libname stack    "FILE PATH REDACTED";
 			run;
 
 			
-/*
+
 			proc sql;
 				select
 				count (distinct bid_cwb_5) as n_bene
