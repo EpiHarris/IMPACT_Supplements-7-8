@@ -1,4 +1,6 @@
-
+**********************************************************************************;
+*creats map for dose 1 distribution**********************************************;
+**********************************************************************************;
 options mprint mtrace mlogic macrogen symbolgen;
 options linesize = 180 pagesize = 50 nocenter validvarname = upcase msglevel=I;
 
