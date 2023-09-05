@@ -1,4 +1,6 @@
-
+*****************************************************************;
+*this code file creates map for the booster distribution*********;
+*****************************************************************;
 options mprint mtrace mlogic macrogen symbolgen;
 options linesize = 180 pagesize = 50 nocenter validvarname = upcase msglevel=I;
 
