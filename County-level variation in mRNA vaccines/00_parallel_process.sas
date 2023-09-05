@@ -1,4 +1,6 @@
-
+****************************************************************************;
+*This program will be used to simultaneously execute 100(10*10) sas datasets;
+****************************************************************************;
 options mprint mtrace mlogic macrogen symbolgen;
 options linesize = 180 pagesize = 50 nocenter validvarname = upcase msglevel=I;
 
@@ -7,8 +9,8 @@ options linesize = 180 pagesize = 50 nocenter validvarname = upcase msglevel=I;
 %let saspath 	= FILE PATH REDACTED;
 %let sas_code 	= FILE PATH REDACTED;
 %let logpath 	= FILE PATH REDACTED;
-%let run_date 	= 3_13_2023;
-%let log_name 	= 02_kc_master_data;
+%let run_date 	= *date of execution of the code;
+%let log_name 	= *name the log;
 %let max_partitions = 10;
 
 
