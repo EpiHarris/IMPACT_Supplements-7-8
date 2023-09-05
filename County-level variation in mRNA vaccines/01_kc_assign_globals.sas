@@ -1,3 +1,7 @@
+******************************************************************************************;
+*This file is a universal file for storing all the macros used in the different code files;
+*This file should be used as a %include path in all the sas code files********************;
+******************************************************************************************;
 
 
 
