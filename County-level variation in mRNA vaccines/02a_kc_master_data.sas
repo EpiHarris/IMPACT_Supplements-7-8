@@ -1,3 +1,8 @@
+*****************************************************;
+*Creates flags for dose 1 and boosters***************;
+*This code will create files at partition level******;
+*To execute this code use 00_parallel_process.sas****;
+*****************************************************;
 
 libname input    "FILE PATH REDACTED" access=readonly;
 
@@ -9,13 +14,8 @@ libname input    "FILE PATH REDACTED" access=readonly;
 		%do p = 1 %to 100;
 			*libname folder    "FILE PATH REDACTED";
 			
-			libname part_&p.   "FILE PATH REDACTED";
-		
-			/*
-			proc datasets library = part_&p. kill;
-			run;
-			quit;
-*/
+			libname part_&p.   "FILE PATH REDACTED";		
+			
 		%end;
 
 %mend;
@@ -24,13 +24,12 @@ libname input    "FILE PATH REDACTED" access=readonly;
 options  mprint mtrace mlogic macrogen symbolgen;
 options linesize = 180 pagesize = 50 nocenter validvarname = upcase msglevel=I;
 
-%include "FILE PATH REDACTED";
+%include "FILE PATH REDACTED/01_kc_assign_globals.sas";
 
 	
 
 		%macro doses;
-			%do p = &start_partition. %to &end_partition.;	
-	
+			%do p = &start_partition. %to &end_partition.;
 			
 				data part_&p.._1a_flag_all_doses_&p.;				
 					set input.bene_week_&p. (obs=&obs. keep = bid: week_id week_st_dt cen: cme: state: fips: bene_class0 &keep_vars.  bene_age bene_rti: bene_sex_cd full: where=(&where_cond.));
