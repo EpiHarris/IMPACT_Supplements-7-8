@@ -1,3 +1,7 @@
+*********************************************************;
+This program adds the NCHS rural urban classification t0*;
+***************************county level data*************;
+
 
 options mprint mtrace mlogic macrogen symbolgen;
 options linesize = 180 pagesize = 50 nocenter validvarname = upcase msglevel=I;
